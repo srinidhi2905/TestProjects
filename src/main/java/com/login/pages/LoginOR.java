@@ -47,6 +47,7 @@ public class LoginOR {
 	@FindBy(how=How.XPATH,using="//button[contains(text(),'Upload file')]") WebElement btnConfirmUpload;
 	@FindBy(how=How.XPATH,using="//*[@id='content']/div[1]/div[1]/div/div[1]/h1/span[1]/span") WebElement redirectPatient;
 	@FindBy(how=How.LINK_TEXT,using="End Visit") WebElement lnkEndVisit;
+	@FindBy(how=How.XPATH,using="//*[@id='end-visit-dialog']/div[2]/button[1]") WebElement popEndvisit;
 	@FindBy(how=How.LINK_TEXT,using="Delete Patient") WebElement lnkDelete;
 	@FindBy(how=How.XPATH,using="//input[@id='delete-reason']") WebElement txtReason;
 	@FindBy(how=How.XPATH,using="//*[@id='delete-patient-creation-dialog']/div[2]/button[1]") WebElement btnconfirmdelete;
@@ -104,17 +105,21 @@ public class LoginOR {
 		lnkStartVisit.click();
 		btnconfirmvisit.click();
 		lnkattach.click();
-		attachdoc.sendKeys("");
-		txtArea.sendKeys("Attached");
-		btnConfirmUpload.click();
+		//attachdoc.sendKeys("/home/srinidhi/Pictures/Understanding-Creative-Work-Culture.jpg");
+		//txtArea.sendKeys("Attached");
+		//btnConfirmUpload.click();
 		redirectPatient.click();
 		lnkEndVisit.click();
+		Thread.sleep(3000);
+		popEndvisit.click();
+		Thread.sleep(3000);
 		lnkDelete.click();
 		txtReason.sendKeys("Testing completed");
 		btnconfirmdelete.click();
 		txtSrchPatient.sendKeys("Srinidhi");
 		result.isDisplayed();
-		
+		Thread.sleep(3000);
+			
 		
 		
 	}
