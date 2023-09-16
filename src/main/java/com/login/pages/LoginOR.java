@@ -1,10 +1,13 @@
 package com.login.pages;
 
+import static org.testng.Assert.assertEquals;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 // @author srinidhi
 
@@ -56,6 +59,7 @@ public class LoginOR {
 	
 	
 	
+	
 	public void SuccessLogin(String uid, String pwd) throws InterruptedException
 	{
 		username.sendKeys(uid);
@@ -63,17 +67,11 @@ public class LoginOR {
 		lstPharm.click();
 		btnLogin.click();
 		Thread.sleep(5000);
-		WebElement Hmepge= lnkLogout;
-		boolean status= Hmepge.isDisplayed();
-		if(status)
-		{
-			System.out.println("Login Successful");
-		}
-		else 
-		{
-			System.out.println("Login Failed");
-		}
-	
+		WebElement hmepge= lnkLogout;
+		boolean status= hmepge.isDisplayed();
+		Assert.assertTrue(status, "The Element is displayed");
+		System.out.println("Login Successful");
+			
 }
 	public void RegPatient() throws InterruptedException
 	
